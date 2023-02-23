@@ -1,7 +1,6 @@
 import logging
 from kafka import KafkaProducer
 from json import dumps
-from driver_config import driver_config as config
 import requests
 import json
 
@@ -69,7 +68,7 @@ def on_delivery(err, record):
     pass
 
 
-def process_producer():
+def process_producer(config: dict):
 
     google_api_key = config["youtube"]["google_api_key"]
     youtube_playlist_id = config["youtube"]["youtube_playlist_id"]

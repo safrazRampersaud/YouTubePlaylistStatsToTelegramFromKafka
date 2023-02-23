@@ -2,10 +2,9 @@ import logging
 import requests
 from kafka import KafkaConsumer
 import json
-from driver_config import driver_config as config
 
 
-def process_consumer():
+def process_consumer(config: dict):
     youtube_playlist_topic = config["kafka"]["youtube_playlist_topic"]
     bootstrap_servers = config["kafka"]["bootstrap_servers"]
     telegram_token = config["telegram"]["token"]

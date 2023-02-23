@@ -5,18 +5,19 @@ import sys
 import argparse
 from consumer import process_consumer
 from producer import process_producer
+from driver_config import driver_config
 
 logger = logging.getLogger(__name__)
 
 
-def main(args=None):
+def main(args=None, config=None):
     print(args)
     if args.consumer:
         logging.info("Consumer started...")
-        process_consumer()
+        process_consumer(config)
     if args.producer:
         logging.info("Producer started...")
-        process_producer()
+        process_producer(config)
 
 
 if __name__ == "__main__":
@@ -27,4 +28,4 @@ if __name__ == "__main__":
     argsv = parser.parse_args()
 
     logging.info("Starting main driver...")
-    sys.exit(main(argsv))
+    sys.exit(main(argsv, driver_config))
