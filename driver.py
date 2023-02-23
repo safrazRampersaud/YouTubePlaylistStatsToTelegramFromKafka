@@ -23,8 +23,8 @@ def main(args=None, config=None):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     parser = argparse.ArgumentParser()
-    parser.add_argument("--consumer", help="1 to execute consumer, 0 otherwise")
-    parser.add_argument("--producer", help="1 to execute producer, 0 otherwise")
+    parser.add_argument("--consumer", help="1 to execute consumer, 0 otherwise", type=int)
+    parser.add_argument("--producer", help="1 to execute producer, 0 otherwise", type=int)
     argsv = parser.parse_args()
 
     logging.info("Starting main driver...")
